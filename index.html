@@ -1,0 +1,198 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My Website</title>
+    <link rel="stylesheet" href="Style.css">
+    <script src="https://kit.fontawesome.com/a4ef7d0ef3.js" crossorigin="anonymous"></script>
+</head>
+<body>
+    <header>
+        <a href="#" class="Logo">Logo</a>
+        <ul>
+            <li><a href="#" class="active">Home</a></li>
+            <li><a href="#About">About</a></li>
+            <li><a href="#Work">Work</a></li>
+            <li><a href="#Contact">Contact</a></li>
+        </ul>
+    </header>
+    <section>
+        <h1 id="MainText">Hello, My name is Kacper</h1>
+        <img src="Img/Earth.png" id="Earth">
+        <img src="Img/saturn.png" id="Saturn">
+        <img src="Img/Astronauta.png" id="Astronauta">
+        <a href="#About" id="MainBtn" role="button">Explore</a>
+    </section>
+    <div class="InfoSection" id="About">
+        <h2>About Me</h2>
+        <p>Jestem bardzo szybko uczącym się programistą chcącym rozwijać swoje
+          umiejętności. Systematycznie uczę się programowania z różnych kursów
+          internetowych jak i w praktycznych projektach. Moim celem jest zostanie
+          programistą Full-Stack.</p>
+    </div>
+    <div class="InfoSection" id="Work">
+        <h2>My Work</h2>
+        <span>Working Project</span>
+        
+    </div>
+    <div class="InfoSection" id="Contact">
+        <div class="contact-box">
+            <div class="contact-links">
+              <h2>CONTACT</h2>
+              <div class="links">
+                <div class="link">
+                  <a href="https://www.linkedin.com/in/kacper-%C5%82acniak-863048190/"><img src="https://i.postimg.cc/m2mg2Hjm/linkedin.png" alt="linkedin" class="Filtered"></a>
+                </div>
+                <div class="link">
+                  <a href="https://github.com/Taidio1"><img src="https://i.postimg.cc/YCV2QBJg/github.png" alt="github" class="Filtered"></a>
+                </div>
+                <div class="link">
+                  <a href="https://codepen.io/taidio1"><img src="https://i.postimg.cc/W4Znvrry/codepen.png" alt="codepen" class="Filtered"></a>
+                </div>
+                <div class="link Facebook">
+                  <a href="https://www.facebook.com/kkacper15"><img src="https://i.postimg.cc/SscDw1zz/facebook-icon-preview-1.png" alt="facebook"></a>
+                </div>
+                <div class="link Facebook Messenger">
+                  <a href="https://m.me/kkacper15"><img src="https://i.postimg.cc/1zbyWXp3/Facebook-Messenger-logo-2018-svg.png" alt="Messenger"></a>
+                </div>
+              </div>
+            </div>
+            <div class="contact-form-wrapper">
+                <span>Send Me a message🚀</span>
+              <form action="https://formsubmit.co/kkacper15@gmail.com" method="POST">
+                <div class="form-item">
+                  <input type="text" name="sender" required>
+                  <label>Name:</label>
+                </div>
+                <div class="form-item">
+                  <input type="email" name="email" required>
+                  <label>Email:</label>
+                </div>
+                <div class="form-item">
+                  <textarea class="" name="message" required></textarea>
+                  <label>Message:</label>
+                </div>
+                <button type="submit" value="Submit" class="submit-btn">Send message</button>  
+              </form>
+            </div>
+          </div>
+        
+    </div>
+
+    <script>
+        //#region Welcome Page
+        let Astronauta = document.getElementById('Astronauta');
+        let Saturn = document.getElementById('Saturn');
+        let Earth = document.getElementById('Earth');
+        let MainText = document.getElementById('MainText');
+        let MainBtn = document.getElementById('MainBtn');
+        let InfoSection = document.getElementById('InfoSection');
+
+        window.addEventListener('scroll', function(){
+            let value = window.scrollY;
+            Earth.style.left = value * 0.25 + 'px';
+            Saturn.style.right = value * 0.05 + 'px';
+        })
+        //#endregion
+
+        //#region Slider
+// Card interface
+    class Card {
+    constructor(node, position) {
+        this.node = node;
+        this.position = position;
+    }
+
+    nextPosition() {
+        let nextPosition = 1;
+
+        if (this.position != 5) {
+        nextPosition = this.position + 1;
+        }
+
+        return nextPosition;
+    }
+
+    prevPosition() {
+        let prevPosition = 5;
+
+        if (this.position != 1) {
+        prevPosition = this.position - 1;
+        }
+
+        return prevPosition;
+    }
+
+    moveNext() {
+        this.node.classList.replace(
+        `position${this.position}`,
+        `position${this.nextPosition()}`
+        );
+
+        this.position = this.nextPosition();
+    }
+
+    movePrev() {
+        this.node.classList.replace(
+        `position${this.position}`,
+        `position${this.prevPosition()}`
+        );
+
+        this.position = this.prevPosition();
+    }
+    }
+
+    // Initializations
+    const [prev, next] = document.querySelectorAll("i");
+    const gallery = document.querySelector(".gallery");
+    const cards = [];
+    let start;
+
+    // Instantiate cards and populate cards array
+    document.querySelectorAll(".card").forEach((e, pos = 0) => {
+    pos += 1;
+    cards.push(new Card(e, pos));
+    });
+
+    // Handle click events
+    next.addEventListener("click", () => {
+    cards.forEach((c) => {
+        c.moveNext();
+    });
+    });
+
+    prev.addEventListener("click", () => {
+    cards.forEach((c) => {
+        c.movePrev();
+    });
+    });
+
+    // Handle slide events
+    gallery.addEventListener("touchstart", (s) => {
+    start = s.targetTouches[0].screenX;
+    });
+
+    gallery.addEventListener("touchend", (e) => {
+    let end = e.changedTouches[0].screenX;
+    const range = Math.abs(start - end);
+
+    if (range > 30) {
+        if (start < end) {
+        cards.forEach((c) => {
+            c.moveNext();
+        });
+        }
+
+        if (start > end) {
+        cards.forEach((c) => {
+            c.movePrev();
+        });
+        }
+    }
+    });
+        //#endregion 
+    </script>
+</body>
+</html>

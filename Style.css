@@ -1,0 +1,717 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap'); 
+@import url('https://fonts.googleapis.com/css2?family=Source+Sans+Pro:wght@300&display=swap');
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Poppins', sans-serif;
+    scroll-behavior: smooth;
+}
+:root {
+	--black: #333;
+	--blacker: #4b4b4b;
+	--white: #ededed;
+	--orange: #eea365;
+	--orangest: #ec7456;
+    --typewriterSpeed: 6s;
+  --typewriterCharacters: 24;
+}
+body{
+    min-height: 100vh;
+    background-image: linear-gradient(180deg,
+  hsl(0deg 0% 0%) 0%,
+  hsl(240deg 100% 4%) 26%,
+  hsl(240deg 100% 4%) 39%,
+  hsl(240deg 92% 5%) 49%,
+  hsl(242deg 75% 10%) 57%,
+  hsl(237deg 80% 14%) 63%,
+  hsl(249deg 84% 17%) 69%,
+  hsl(246deg 82% 19%) 74%,
+  hsl(242deg 80% 20%) 78%,
+  hsl(238deg 83% 20%) 83%,
+  hsl(242deg 81% 21%) 88%,
+  hsl(247deg 86% 21%) 93%,
+  hsl(250deg 91% 21%) 100%
+);
+}
+/*#region Header*/
+header{
+    position: sticky;
+    top: 0; 
+    left: 0;
+    width: 100%;
+    padding: 30px 100px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    z-index: 10000;
+}
+header .Logo{
+    color: #fff;
+    font-weight: 700;
+    text-decoration: none;
+    font-size: 2em;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+}
+header ul{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+header ul li{
+    list-style: none;
+    margin-left: 20px;
+}
+header ul li a{
+    text-decoration: none;
+    padding: 6px 15px;
+    color: #fff;
+    border-radius: 20px;
+}
+header ul li a:hover , 
+header ul li a.active{
+    background: #fff;
+    color: #040453;
+}
+/*#endregion*/
+
+
+/*#region Welcome Section*/
+section{
+    position: relative;
+    width: 100%;
+    height: 100vh;
+    padding: 100px;
+    display: flex;
+    justify-content: center;
+    text-align: center;
+}
+section img{
+    position: absolute;
+    object-fit: cover;
+}
+#Earth{
+    width: 30%;
+    min-width: 40%;
+    left: 0;
+    bottom: 10%;
+}
+#Saturn{
+    width: 40%;
+    right: 0;
+    bottom: 10%;
+}
+#Astronauta{
+    width: 60%;
+    max-width: 800px;
+    min-width: 400px;
+    bottom: 0;
+}
+h1 {
+    font-size: clamp(1rem, 3vw + 1rem, 4rem);
+    position: relative;
+    font-family: 'Poppins', sans-serif;
+    position: relative;
+    width: max-content;
+    color: #fff;
+    height: min-content;
+  }
+  
+  h1::before,
+  h1::after {
+    content: "";
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+  }
+  
+  h1::before {
+    background: rgb(0, 0, 0);
+    animation: typewriter var(--typewriterSpeed)
+      steps(var(--typewriterCharacters)) 1s forwards;
+  }
+  
+  h1::after {
+    width: 0.125em;
+    background: rgb(255, 255, 255);
+    animation: typewriter var(--typewriterSpeed)
+        steps(var(--typewriterCharacters)) 1s forwards,
+      blink 750ms steps(var(--typewriterCharacters)) infinite;
+  }
+  
+  @keyframes typewriter {
+    to {
+      left: 100%;
+    }
+  }
+  
+  @keyframes blink {
+    to {
+      background: transparent;
+    }
+  }
+  
+  @keyframes fadeInUp {
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+#MainBtn{
+    position: absolute;
+    text-decoration: none;
+    padding: 8px 30px;
+    border-radius: 40px;
+    background: #060683;
+    color: #fff;
+    font-size: 1.5em;
+    height: min-content;
+    bottom: 10%;
+    z-index: 10;
+}
+/*#endregion*/
+
+/*#region InfoSection - all*/
+.InfoSection{
+    position: relative;
+    height: 100vh;
+    text-align: center;
+    padding: 100px 0px 0px 0px;
+}
+.InfoSection h2{
+    font-size: 3.2em;
+    margin-bottom: 10px;
+    color: #fff;
+}
+.InfoSection p{
+    font-size: 1.0em;
+    color: #fff;
+
+}
+
+/*#endregion*/
+
+/*#region About Me*/
+#About p{
+ padding: 100px ;
+ text-align: left;
+ font-size: 1.7em;
+}
+/*#endregion*/
+
+/*#region MyWork*/
+#Work span{
+    color: #fff;
+    font-size: 1.5em;
+    padding: 0 0 0 5px;
+}
+
+.Box{
+    display: flex;
+    justify-content: space-evenly;
+    text-align: center;
+    flex-direction: column;
+    font-weight: bold;
+    font-size: 2rem;
+    position: relative;
+    width: 100%;
+    height: 300px;
+    background-color: white;
+    border: 1px solid rgba(59,58,58,0.4);
+    top: 0;
+    transition: top ease 0.5s;
+    gap: 5%;
+}
+.Box img{
+    width: 100%;
+    height: 18%;
+}
+.Box span{
+    font-size: 0.5em !important;
+    color: black !important;
+}
+.Box a{
+    font-size: 0.7em;
+    text-decoration: none;
+    background-color: rgb(196, 197, 245);
+    color: black;
+    text-align: center;
+    border-radius: 15px;
+    width: fit-content ;
+}
+/*#region Slider*/
+.WorkBody {
+    height: 50vh;
+    display: flex;
+    align-items: center;
+  }
+  
+  .prev,
+  .next {
+    height: 100%;
+    width: 30vw;
+    display: flex;
+    align-items: center;
+  }
+  
+  .prev {
+    justify-content: end;
+  }
+  
+  .next {
+    justify-content: start;
+  }
+  
+  i {
+    font-size: 2em;
+    color: white;
+    opacity: 0.5;
+    transition: all 0.2s ease-in-out;
+  }
+  
+  i:hover {
+    transform: scale(1.1);
+    opacity: 1;
+  }
+  
+  .gallery {
+    position: relative;
+    height: 70%;
+    width: 100%;
+    display: flex;
+    align-items: center;
+  }
+  
+  .card {
+    position: absolute;
+    width: 30%;
+    transition: all 0.3s ease-in-out;
+    border-radius: 5% 0 5% 0;
+    overflow: hidden;
+  }
+  
+  .position1 {
+    left: 30%;
+    z-index: 3;
+    transform: scale(1);
+    opacity: 1;
+    min-width: 300px;
+  }
+  
+  .position1:hover {
+    transform: scale(1.1);
+  }
+  
+  .position2 {
+    left: 65%;
+    z-index: 2;
+    transform: scale(0.8);
+    opacity: 0.6;
+  }
+  
+  .position3 {
+    left: 55%;
+    z-index: 1;
+    transform: scale(0.6);
+    opacity: 0.2;
+  }
+  
+  .position4 {
+    left: 15%;
+    z-index: 1;
+    transform: scale(0.6);
+    opacity: 0.2;
+  }
+  
+  .position5 {
+    left: 5%;
+    z-index: 2;
+    transform: scale(0.8);
+    opacity: 0.6;
+  }
+  
+  @media only screen and (max-width: 720px) {
+    .prev,
+    .next {
+      display: none;
+    }
+  
+    .WorkBody {
+      align-items: flex-start;
+    }
+  
+  }
+/*#endregion*/
+
+/*#endregion*/
+
+/*#region Contact Section*/
+#Contact{
+  display: flex;
+  justify-content: center;
+  text-align: center;
+}
+
+.contact-box {
+  width: clamp(100px, 90%, 1000px);
+  margin: 80px 50px;
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.contact-links, .contact-form-wrapper {
+  width: 50%;
+  padding: 8% 5% 10% 5%;
+}
+
+
+.contact-links {
+  background-color: #1f2e43;
+  background:
+    radial-gradient(
+      circle at 55% 92%, #426691 0 12%, transparent 12.2%
+    ), 
+    radial-gradient(
+      circle at 94% 72%, #426691 0 10%, transparent 10.2%
+    ), 
+    radial-gradient(
+      circle at 20% max(78%, 350px), #263a53 0 7%, transparent 7.2%
+    ), 
+    radial-gradient(
+      circle at 0% 0%, #263a53 0 40%, transparent 40.2%
+    ), 
+    #1f2e43;
+  border-radius: 10px 0 0 10px;
+}
+
+.contact-form-wrapper {
+  background-color: #ffffff8f;
+  border-radius: 0 10px 10px 0;
+}
+.contact-form-wrapper span{
+  font-size: 1.5em;
+  color: white;
+  font-weight: 500;
+  font-family: 'Poppins', sans-serif;
+}
+.contact-form-wrapper form{
+  margin-top: 20px;
+}
+
+@media only screen and (max-width: 800px) {
+  .contact-links, .contact-form-wrapper {
+    width: 100%;
+  }
+  
+  .contact-links {
+    border-radius: 10px 10px 0 0;
+  }
+  
+  .contact-form-wrapper {
+    border-radius: 0 0 10px 10px;
+  }
+}
+
+@media only screen and (max-width: 400px) {
+  .contact-box {
+    width: 95%;
+    margin: 0% 0%;
+  }
+}
+
+h2 {
+  font-family: 'Arimo', sans-serif;
+  color: #fff;
+  font-size: clamp(30px, 6vw, 60px);
+  letter-spacing: 2px;
+  text-align: center;
+  transform: scale(.95, 1);
+}
+
+.links {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  padding-top: 50px;
+}
+
+.link {
+  margin: 10px;
+  cursor: pointer;
+}
+.Facebook{
+  background-color: #e5ebff !important;
+  width: 45px !important;
+  height: 45px !important;
+  border-radius: 7px !important;
+  filter: none !important;
+}
+.Messenger{
+  display: flex;
+  justify-content: center;
+  padding: 7px;
+}
+.Messenger a img{
+  width: 35px !important;
+  height: 35px !important;
+}
+#Contact img {
+  width: 45px;
+  height: 45px;
+  transition: 0.2s;
+  user-select: none;
+}
+.Filtered{
+  filter: 
+  hue-rotate(220deg)
+  drop-shadow(2px 4px 4px #0006);
+}
+#Contact img:hover {
+  transform: scale(1.1, 1.1);
+}
+
+#Contact img:active {
+  transform: scale(1.1, 1.1);
+  filter: 
+    hue-rotate(220deg)
+    drop-shadow(2px 4px 4px #222)
+    sepia(0.3);
+}
+
+.form-item {
+  position: relative;
+}
+
+#Contact label, input, textarea {
+  font-family: 'Poppins', sans-serif;
+}
+
+#Contact label {
+  position: absolute;
+  top: 10px;
+  left: 2%;
+  color: #999;
+  font-size: clamp(14px, 1.5vw, 18px);
+  pointer-events: none;
+  user-select: none;
+}
+
+#Contact input, textarea {
+  width: 100%;
+  outline: 0;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  margin-bottom: 20px;
+  padding: 12px;
+  font-size: clamp(15px, 1.5vw, 18px);
+}
+
+#Contact input:focus+label, 
+#Contact input:valid+label, 
+#Contact textarea:focus+label, 
+#Contact textarea:valid+label {
+  font-size: clamp(13px, 1.3vw, 16px);
+  color: #777;
+  top: -20px;
+  transition: all .225s ease;
+}
+
+.submit-btn {
+  background-color: #331cff;
+  filter: drop-shadow(2px 2px 3px #0003);
+  color: #fff;
+  font-family: "Poppins",sans-serif;
+  font-size: clamp(16px, 1.6vw, 18px);
+  display: block;
+  padding: 12px 20px;
+  margin: 2px auto;
+  border: none;
+  border-radius: 15px;
+  cursor: pointer;
+  user-select: none;
+  transition: 0.2s;
+}
+
+.submit-btn:hover {
+  transform: scale(1.1, 1.1);
+}
+
+.submit-btn:active {
+  transform: scale(1.1, 1.1);
+  filter: sepia(0.5);
+}
+
+@media only screen and (max-width: 800px) {
+  h2 {
+    font-size: clamp(40px, 10vw, 60px);
+  }
+}
+
+@media only screen and (max-width: 400px) {
+  h2 {
+    font-size: clamp(30px, 12vw, 60px);
+  }
+  
+  .links {
+    padding-top: 30px;
+  }
+  
+  #Contact img {
+    width: 38px;
+    height: 38px;
+  }
+}
+/*#endregion*/
+
+/*#region On Media Screen*/
+@media only screen and (max-width: 590px) {
+    /*#region BODY*/
+    *{
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+        font-family: 'Poppins', sans-serif;
+        scroll-behavior: smooth;
+    }
+    body{
+        min-height: 100vh;
+    }
+    #About p{
+      padding: 0 !important;
+    }
+    /*#endregion*/
+
+    /*#region Media Screen HEADER*/
+    header{
+        position: sticky !important;
+        align-self: flex-end;
+        bottom: 1rem;
+        top: 1rem; 
+        left: 0;
+        width: 100%;
+        padding: 15px 20px;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        z-index: 10000;
+    }
+    header .Logo{
+        color: #fff;
+        font-weight: 700;
+        text-decoration: none;
+        font-size: 2em;
+        text-transform: uppercase;
+        letter-spacing: 2px;
+    }
+    header ul{
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+    header ul li {
+        list-style: none;
+        margin-left: 5px;
+    }
+    header ul li a{
+        text-decoration: none;
+        padding: 6px 15px;
+        color: #fff;
+        border-radius: 20px;
+    }
+    header ul li a:hover , 
+    header ul li a.active{
+        background: #fff;
+        color: #040453;
+    }
+    /*#endregion*/
+
+    /*#region First Section*/
+  section{
+    position: relative;
+    width: 90%;
+    height: 85vh;
+    padding: 150px;
+    display: flex;
+    justify-content: center;
+    text-align: center;
+}
+section img{
+    position: absolute;
+    object-fit: cover;
+}
+#Earth{
+    width: 60%;
+    min-width: 40%;
+    left: 0;
+    bottom: 0%;
+    margin-left: -30px;
+}
+#Saturn{
+    width: 40%;
+    right: 0;
+    bottom: 10%;
+}
+#Astronauta{
+    width: 60%;
+    max-width: 800px;
+    min-width: 400px;
+    bottom: 5%;
+}
+#MainText{
+    position: absolute;
+    color: #fff;
+    white-space: nowrap;
+    font-size: 7vw;
+    padding: 0px 0 0 20px;
+
+}
+#MainBtn{
+    position: absolute;
+    text-decoration: none;
+    padding: 8px 30px;
+    border-radius: 40px;
+    background: #060683;
+    color: #fff;
+    font-size: 1.5em;
+    height: min-content;
+    bottom: 10%;
+    z-index: 10;
+}
+  /*#endregion*/
+
+    /*#region MyWork*/
+    .WorkingProject{
+        display: flex;
+        justify-content: center;
+        row-gap: 10px;
+        gap: 3%;
+        flex-wrap: wrap;
+    }
+    /*#endregion*/
+
+    /*#region Info Section*/
+    .InfoSection{
+        position: relative;
+        width: 100%;
+        padding: 5%;
+        margin-bottom: 10%;
+        height: 90vh;
+    }
+    .InfoSection h2{
+        font-size: 3.2em;
+        margin-bottom: 10px;
+        color: #fff;
+    }
+    .InfoSection p{
+        font-size: 1.0em;
+        color: #fff;
+
+    }
+
+    /*#endregion*/
+}
+
+/*#endregion*/
